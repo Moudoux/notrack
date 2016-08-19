@@ -39,6 +39,12 @@ Advanced
 
 ********************************************************************/
 
+  // Remove .php extension
+	if (strpos($_SERVER['REQUEST_URI'],".php") !== false) {
+		$newUri = str_replace(".php","",$_SERVER['REQUEST_URI']);
+		header('Location: '.$newUri);
+	}
+
 require('./include/global-vars.php');
 require('./include/global-functions.php');
 require('./include/topmenu.php');
