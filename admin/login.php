@@ -27,6 +27,12 @@
 //9. Use Javascript to check if Cookies have been enabled
 //9a. If Cookies are disabled then set 8. to Visible
 
+  // Remove .php extension
+	if (strpos($_SERVER['REQUEST_URI'],".php") !== false) {
+		$newUri = str_replace(".php","",$_SERVER['REQUEST_URI']);
+		header('Location: '.$newUri);
+	}
+
 require('./include/global-vars.php');
 require('./include/global-functions.php');
 LoadConfigFile();
